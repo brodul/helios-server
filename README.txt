@@ -40,3 +40,27 @@ python manage.py migrate --list
 - if there are some unchecked migrations, and you are SURE that your database is up to date with the models (which should be the case if you're on a v3.0.x version), then do
 
 python manage.py migrate --fake
+
+Buildout install
+================
+
+Make sure you have ``python-dev`` and ``libpq-dev`` installed.
+No other python dependecies needed.
+
+Clone the repo
+
+``python bootstrap -v 1.7``
+
+``bin/buildout``
+
+For development:
+
+``bin/django syncdb --settings=dev_settings``
+
+``bin/django migrate --settings=dev_settings``
+
+``bin/django runserver --settings=dev_settings``
+
+For production:
+
+TODO
