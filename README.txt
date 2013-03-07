@@ -49,11 +49,15 @@ No other python dependecies needed.
 
 Clone the repo
 
-``python bootstrap -v 1.7``
+``cd helios-server``
+
+``ln -s buildout.d/base.cfg buildout.cfg``
+
+``python bootstrap.py -v 1.7``
 
 ``bin/buildout``
 
-For development:
+For development (SQLite3 + development server):
 
 ``bin/django syncdb --settings=dev_settings``
 
@@ -61,6 +65,6 @@ For development:
 
 ``bin/django runserver --settings=dev_settings``
 
-For production:
+For production (PSQL + gunicorn production server):
 
 TODO
