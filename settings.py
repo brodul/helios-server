@@ -8,7 +8,7 @@ def get_from_env(var, default):
     else:
         return default
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -20,7 +20,10 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'helios'
+        'HOST': 'localhost',
+        'NAME': 'helios',
+        'USER': 'helios',
+        'PASSWORD': 'helios',
     }
 }
 
