@@ -44,14 +44,14 @@ python manage.py migrate --fake
 Buildout install
 ================
 
-Make sure you have ``python-dev`` and ``libpq-dev`` installed.
+Make sure you have ``python-dev``, ``python-setuptools`` and  ``libpq-dev`` installed.
 No other python dependecies needed.
 
 Clone the repo
 
 ``cd helios-server``
 
-``ln -s buildout.d/base.cfg buildout.cfg``
+``ln -s buildout.d/development.cfg buildout.cfg``
 
 ``python bootstrap.py -v 1.7``
 
@@ -67,4 +67,22 @@ For development (SQLite3 + development server):
 
 For production (PSQL + gunicorn production server):
 
-TODO
+``cd helios-server``
+
+``ln -s buildout.d/production.cfg buildout.cfg``
+
+``python bootstrap.py -v 1.7``
+
+``bin/buildout``
+
+Make sure you edit the ENGINE in settings.py (se django docs).
+
+``bin/django syncdb --settings=settings``
+
+``bin/django migrate --settings=settings``
+
+``bin/supervisord``
+
+the application should run on port 9337
+
+You have to configure the nginx as a proxy pass to this port
